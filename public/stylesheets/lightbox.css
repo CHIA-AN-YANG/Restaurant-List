@@ -1,0 +1,59 @@
+.lightbox__mask{
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}
+.lightbox__card{
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  text-align: left;
+
+  max-width: 60%;
+  max-height: 90vh;
+  transform: translate(-50%, 0);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  background-color: #fff;
+}
+.lightbox__holder{
+  display: block;
+  max-height: calc(80vh);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.lightbox.iframe-container{
+  width:800px;
+  height:300px;
+  overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .lightbox__card{ width: 800px}
+  .iframe-container{
+    width:600px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .lightbox__card{ width: 600px}
+  .iframe-container{
+    width:560px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .lightbox__card{ width: 500px}
+  .iframe-container{
+    width:500px;
+  }
+}
+@media (max-width: 767px) {
+  .lightbox__card{ width: 90vw}
+  .iframe-container{
+    width:80vw;
+  }
+}
