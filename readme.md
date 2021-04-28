@@ -30,12 +30,11 @@ npm install
 
 ## Usage
 
-This project is build under Node.js runtime environment, with Express framework. To start it on local server, simply run the app.js file with `node`
+The npm used in this project is **7.6.3**. This project is built under **Node.js v15.10.0** runtime environment, with Express framework. To start it on local server, simply run the app.js file with `node` command in CLI:
 
 ```bash
 node app.js
 ```
-
 If you wish to automatically restarting the node application when file changes in the directory are detected, you may run nodemon.
 Since the nodemon is intalled under project folder, it takes npx to run nodemon:
 
