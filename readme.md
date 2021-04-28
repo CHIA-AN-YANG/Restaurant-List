@@ -1,5 +1,3 @@
-![restaurant list logo](/public/asset/logo.svg.jpg)
-
 # Restaurant List
 
 Restaurant List is a private restaurant collection for foodies. You can view and your favorite restaurants here. You will be able to add, modify, and record your own favorite restaurant once restaurant list is fully updated
