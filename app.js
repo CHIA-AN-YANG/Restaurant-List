@@ -1,23 +1,22 @@
+// declaration
 const express = require('express')
 const app = express()
-const port = 3000
 const exphbs = require('express-handlebars')
 const resJson = require('./restaurant.json')
-const resList = resJson['results']
-let showLightBox = "none"
+const port = 5000
 
-
-//set path for static folder, this is also a router setting
+// static folder
 app.use(express.static('public'))
 
-//set template engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+// template engine
+app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'handlebars')
 
+// body parser ()
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-//  ************************************************
-//  | setting the route and corresponding response |
-//  ************************************************
+// router
 
 app.get('/', (req, res) => {
   const noLightBox = "none"
@@ -25,13 +24,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/map/:id', (req, res) => {
-  showLightBox = "block"
-  const resSingle = resList.find(el => el.id.toString() === req.params.id)
-  res.render('index',{restaurants: resList, restaurant:resSingle, showLightBox:showLightBox})
+  const resList = resJson['results'];
+  const showLightBox = "block";
+  const resSingle = resList.find(el => el.id.toString() === req.params.id);
+  res.render('index',{restaurants: resList, restaurant:resSingle, showLightBox:showLightBox});
 })
 
 app.get('/search', (req, res) => {
   const noLightBox = "none"
+  const resList = resJson['results']
   const resSingle = "";
   const keyword = req.query.keyword
   const resFilteredList = resList.filter(el =>{ return el.name.toLowerCase().includes(keyword.toLowerCase())})

@@ -1,6 +1,6 @@
 # Restaurant List
 
-Restaurant List is a private restaurant collection for foodies. You can view and your favorite restaurants here. You will be able to add, modify, and record your own favorite restaurant once restaurant list is fully updated
+Restaurant List is a private restaurant collection for foodies. You can view your favorite restaurants here. Add, modify, and record your own favorite restaurant with this restaurant list!
 
 ## Installation
 
@@ -15,7 +15,6 @@ Alternatively, clone with SSH:
 ```bash
 git clone git@github.com:CHIA-AN-YANG/Restaurant-List.git
 ```
-
 Run npm install to install required plugins.
 
 ```bash
