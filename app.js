@@ -5,6 +5,23 @@ const exphbs = require('express-handlebars')
 const resJson = require('./restaurant.json')
 const port = 5000
 
+const mongoose = require('mongoose')                       // 載入 mongoose
+mongoose.connect(                                          // 設定連線到 mongoDB
+	'mongodb://localhost:27017/local',
+	 {                                                       //configure parser & engine
+		useNewUrlParser: true, 
+		useUnifiedTopology: true
+		}
+)   
+const Restaurant = require('./models/restaurant')
+
+const db = mongoose.connection
+// 取得資料庫連線狀態
+db.on('error', () => { console.log('mongodb error!') }) 
+db.once('open', () => { console.log('mongodb connected!') })
+
+
+
 // static folder
 app.use(express.static('public'))
 
@@ -23,7 +40,7 @@ app.get('/', (req, res) => {
   res.render('index',{restaurants: resList, showLightBox: noLightBox})
 })
 
-app.get('/map/:id', (req, res) => {
+app.get('/shops/:id', (req, res) => {
   const resList = resJson['results'];
   const showLightBox = "block";
   const resSingle = resList.find(el => el.id.toString() === req.params.id);
