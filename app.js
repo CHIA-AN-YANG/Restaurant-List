@@ -2,16 +2,12 @@
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
-const resJson = require('./restaurant.json')
 const port = 5000
 
 const mongoose = require('mongoose')                       // 載入 mongoose
 mongoose.connect(                                          // 設定連線到 mongoDB
 	'mongodb://localhost:27017/local',
-	 {                                                       //configure parser & engine
-		useNewUrlParser: true, 
-		useUnifiedTopology: true
-		}
+	 { useNewUrlParser: true, useUnifiedTopology: true	}
 )   
 const Restaurant = require('./models/restaurant')
 
@@ -20,14 +16,12 @@ const db = mongoose.connection
 db.on('error', () => { console.log('mongodb error!') }) 
 db.once('open', () => { console.log('mongodb connected!') })
 
-
-
 // static folder
 app.use(express.static('public'))
 
 // template engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
-app.set('view engine', 'handlebars')
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 // body parser ()
 app.use(express.urlencoded({ extended: true }));
@@ -37,11 +31,15 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   const noLightBox = "none"
-  res.render('index',{restaurants: resList, showLightBox: noLightBox})
+  const noData = "";
+  Restaurant.find()
+  .lean()
+  .then(data => res.render('index',{restaurants: data, showLightBox: noLightBox}))
+  .catch(error => console.error(error))  
 })
 
 app.get('/shops/:id', (req, res) => {
-  const resList = resJson['results'];
+  const resList = []
   const showLightBox = "block";
   const resSingle = resList.find(el => el.id.toString() === req.params.id);
   res.render('index',{restaurants: resList, restaurant:resSingle, showLightBox:showLightBox});
@@ -49,7 +47,7 @@ app.get('/shops/:id', (req, res) => {
 
 app.get('/search', (req, res) => {
   const noLightBox = "none"
-  const resList = resJson['results']
+  const resList = []
   const resSingle = "";
   const keyword = req.query.keyword
   const resFilteredList = resList.filter(el =>{ return el.name.toLowerCase().includes(keyword.toLowerCase())})

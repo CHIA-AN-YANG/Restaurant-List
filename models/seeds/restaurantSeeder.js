@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Restaurant = require('../restaurant')
+const Restaurant = require('../restaurant.js')
 const restaurantSeedArr = [
 {
   "id": 1,
@@ -109,7 +109,18 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected in seeder file')
   for (let i = 0; i < restaurantSeedArr.length; i++) {
-    Restaurant.create(restaurantSeedArr[i])
+    let docObj = restaurantSeedArr[i]
+    Restaurant.create({
+      name: docObj.name,
+      en_name: docObj.en_name,
+      category:docObj.category,
+      image: docObj.image,
+      location: docObj.location,
+      phone: docObj.phone,
+      google_map: docObj.google_map,
+      rating: docObj.rating,
+      description: docObj.description      
+    })
   }
   console.log('done')
 })

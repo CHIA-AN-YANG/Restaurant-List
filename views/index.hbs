@@ -10,7 +10,7 @@
             </form>
               <div class="u-expanded-width-xs u-list u-repeater u-list-1">
                 {{#each restaurants}}            
-                <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-{{this.id}}">
+                <div class="u-container-style u-list-item u-repeater-item u-white">
                   <div class="u-container-layout">
                     <div class="img-container u-expanded-width-xs">
                       <img alt="restaurant image" class="u-image u-image-1" src="{{this.image}}">
@@ -29,7 +29,7 @@
                         </p>
                         <h6 class="u-text u-text-palette-3-base u-text-5  u-font-newscycle u-custom-font"><i class="fas fa-utensils pr-2"></i> {{this.category}}</h6>
 
-                        <a href="{{host}}/sho/{{this.id}}" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1  u-font-newscycle u-custom-font">Know More</a>
+                        <a href="/shops/{{this._id}}" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1  u-font-newscycle u-custom-font">Know More</a>
                       </div>
                     </div>
                   </div>
