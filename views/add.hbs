@@ -1,0 +1,70 @@
+
+<section class="u-align-center u-clearfix u-grey-10">
+<form action="/shops/add" method="POST" class="form__card">
+
+  <h3>新增餐廳資訊</h3>
+
+  <div class="form-group row">
+    <div class="col">
+      <label for="name">餐廳名字</label>
+      <input class="form-control" type="text" name="name"  aria-describedby="nameHelp" required>
+    </div>
+    <div class="col">
+      <label for="en_name">英文餐廳名</label>
+      <input class="form-control" type="text" name="en_name"  aria-describedby="en_nameHelp" required>  
+    </div>
+
+  </div>
+
+  <div class="form-group row">
+    <div class="col">
+      <label for="category">分類</label>
+      <select  class="custom-select" id="category" name="category">
+        <option selected>選擇標籤吧</option>
+        <option value="日本料理">日本料理</option>
+        <option value="中東美食">中東美食</option>
+        <option value="傳統小吃">傳統小吃</option>
+        <option value="美式風味">美式風味</option>
+        <option value="義式料理">義式料理</option>
+        <option value="歐陸風情">歐陸風情</option>
+      </select>      
+    </div>
+    <div class="col">
+    <label for="phone">餐廳電話</label>
+    <input class="form-control" type="text" name="phone" max-length="13" required>        
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="image">圖片網址</label>
+    <input class="form-control" type="text" name="image" required>  
+  </div>
+
+  <div class="form-group">
+    <label for="location">餐廳地址</label>
+    <input class="form-control" type="text" name="location"  aria-describedby="locationHelp" required>  
+    <small id="locationHelp" class="form-text text-muted">填入縣市、鄉、鎮的完整地址</small>
+  </div>
+
+  <div class="form-group">
+    <label for="rating">如果滿分是五分，你給這間餐廳打幾分呢?</label>
+    <input class="form-control" type="number" placeholder="評價 1-5" name="rating" min="1" max="5" step=".1" aria-describedby="ratingHelp" required>
+    <small id="ratingHelp" class="form-text text-muted">填入至小數點第一位</small>
+  </div>
+
+  <div class="form-group">
+    <label for="google_map">插入Google Map的 iframe</label>
+    <textarea class="form-control" name="google_map" rows="2"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="description">寫個這間餐廳的小筆記</label>
+    <textarea class="form-control" name="description" rows="3" maxlength="200"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-form">Create</button>
+
+ </fieldset>
+</form>
+</section>
