@@ -1,4 +1,4 @@
-![webpage preview](https://github.com/CHIA-AN-YANG/Restaurant-List/blob/master/public/asset/restaurant-list_A4.JPG)
+![webpage preview](https://github.com/CHIA-AN-YANG/Restaurant-List/blob/main/public/asset/restaurant-list_A4.JPG?raw=true)
 # Restaurant List
 
 Restaurant List is a private restaurant collection for foodies. You can view your favorite restaurants here. Add, modify, and record your own favorite restaurant with this restaurant list!
