@@ -1,3 +1,4 @@
+![webpage preview](https://github.com/CHIA-AN-YANG/Restaurant-List/blob/master/public/asset/restaurant-list_A4.JPG)
 # Restaurant List
 
 Restaurant List is a private restaurant collection for foodies. You can view your favorite restaurants here. Add, modify, and record your own favorite restaurant with this restaurant list!
@@ -24,6 +25,8 @@ npm install
 
 1. Click on the restaurant to see its detailed description and locate its position on google map.
 2. Find the restaurant by any related letters with the search function. 
+3. Add your new favorite restaurant with the orange button on index page. 
+4. Modify or delete outdated restaurant with CRUD functions.
 
 ## Usage
 
@@ -38,7 +41,7 @@ Since the nodemon is intalled under project folder, it takes npx to run nodemon:
 ```bash
 npx nodemon
 ```
-Now, enter http://localhost:3000/ in your browser and you are good to go!
+Now, enter http://localhost:5000/ in your browser and you are good to go!
 
 
 ## Contributing
