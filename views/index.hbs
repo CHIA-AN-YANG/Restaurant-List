@@ -1,83 +1,103 @@
-        <section class="u-align-center u-clearfix u-grey-10 u-section-2" id="sec-922b">
-          <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-text-palette-3-base u-text-1">Restaurant - Private Collection</h1>
-            <p class="u-text u-font-newscycle u-custom-font">Unique food collection, my private favorites.</p>
+<section class="u-align-center u-clearfix u-grey-10 u-section-2" id="sec-922b">
+  <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    {{!-- header start --}}
+    <h1 class="u-custom-font u-font-oswald u-text u-text-default u-text-palette-3-base u-text-1">
+      Restaurant - Private Collection
+    </h1>
+    <p class="u-text u-font-newscycle u-custom-font">
+      Unique food collection, my private favorites.
+    </p>
+    
+    <div class="container--add-shop">
+      <a href="/shops/add">
+        <div class="btn--add-shop"><i class="fas fa-plus"></i></div>
+        <div class="text--add-shop">新增你的餐廳吧！</div>
+      </a>
+    </div>  
+          
+    <form action="/shops/search" method="GET">
+      <div class="search-container">
+        <input type="text" class="u-search" name="keyword" placeholder="Search..." value="{{keyword}}">
+        <button type="submit" class="u-search" id="search-button">Search</button>
+      </div>
+    </form>
+    {{!-- header end --}}
 
-            
-             <div class="container--add-shop">
-              <a href="/shops/add">
-                <div class="btn--add-shop"><i class="fas fa-plus"></i></div>
-                <div class="text--add-shop">新增你的餐廳吧！</div>
-              </a>
-            </div>  
-            
-      
-            <form action="/search">
-              <div class="search-container">
-              <input type="text" class="u-search" name="keyword" placeholder="Search..." value="{{keyword}}">
-                <button type="submit" class="u-search" id="search-button">Search</button>
-              </div>
-            </form>
-              <div class="u-expanded-width-xs u-list u-repeater u-list-1">
-                {{#each restaurants}}            
-                <div class="u-container-style u-list-item u-repeater-item u-white">
-                  <div class="u-container-layout">
-                    <div class="img-container u-expanded-width-xs">
-                      <img alt="restaurant image" class="u-image u-image-1" src="{{this.image}}">
-                    </div>       
-                                 
-                    <div class="u-align-left-xs u-container-style u-expanded-width-xs u-group u-video-cover u-group-1">
-                      <div class="u-container-layout u-valign-middle-xs">
-                        <h3 class="u-custom-font u-font-oswald u-text u-text-3">{{this.name}}<br><small>{{this.name_en}}</small>
-                        <div class="row row--badge">  
-                          <div class="badge"><span>{{this.rating}}</span><i class="fas fa-star fa-s"></i></div>                       
-                          <a href="shops/{{this._id}}/edit">
-                           <button class="text--router">EDIT</button>                    
-                          </a>
-                          <form action="shops/{{this._id}}/delete" method="POST">
-                            <button class="text--router" type="submit">DELETE</button>
-                          </form>
-                        </div>
+    {{!-- restaurant showcase start --}}
+      <main class="u-expanded-width-xs u-list u-repeater u-list-1">
+        {{#each restaurants}}            
+          <div class="u-container-style u-list-item u-repeater-item u-white">
+            <div class="u-container-layout">
+              
+            <div class="img-container u-expanded-width-xs">
+              <img alt="restaurant image" class="u-image u-image-1" src="{{this.image}}">
+            </div>       
+                            
+            <div class="u-align-left-xs u-container-style u-expanded-width-xs u-group u-video-cover u-group-1">
+              <div class="u-container-layout u-valign-middle-xs">
 
+                <h3 class="u-custom-font u-font-oswald u-text u-text-3">                  
+                  {{this.name}}<br>
+                  <small>{{this.name_en}}</small>
+                </h3>
 
-                        </h3>
-                        <p class="u-text u-text-default u-font-newscycle u-custom-font"> 
-                          <i class="fas fa-map-marker-alt pr-2"></i>{{this.location}}<br>
-                          <i class="fas fa-mobile-alt pr-2"></i>{{this.phone}}
-                        </p>
-                        <h6 class="u-text u-text-palette-3-base u-text-5  u-font-newscycle u-custom-font"><i class="fas fa-utensils pr-2"></i> {{this.category}}</h6>
-
-                        <a href="/shops/{{this._id}}/show" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1  u-font-newscycle u-custom-font">Know More</a>
-                      </div>
-                    </div>
-                  </div>
+                <div class="row row--badge"> 
+                  <div class="badge"><span>{{this.rating}}</span><i class="fas fa-star fa-s"></i></div>              
+                  <a href="shops/{{this._id}}/edit">
+                    <button class="text--router">EDIT</button>                    
+                  </a>                
+                  <form action="shops/{{this._id}}?_method=DELETE" method="POST">
+                    <button class="text--router" type="submit">DELETE</button>
+                  </form>
                 </div>
-                {{/each}}
-              </div>
-
-              <div class="lightbox__mask" style="display:{{showLightBox}}">
                 
-                <div class="lightbox__card">
-                  <div class="lightbox__holder">
-                  <h3 class="u-custom-font u-font-oswald u-text u-text-3">{{restaurant.name}}&nbsp;<small>{{restaurant.name_en}}</small>
-                    <span class="lightbox badge">
-                      {{restaurant.rating}}
-                      <i class="fas fa-star fa-s"></i>                          
-                    </span>
-                      <a class="u-link" href="/shops/{{this._id}}/edit">修改資料</a>
-                      <a class="u-link" href="/shops/{{this._id}}/edit">刪除餐廳</a>
-                  </h3>
-                  <p class="u-text u-text-palette-3-base u-text-4">
-                    <i class="fas fa-map-marker-alt pr-2"></i>{{restaurant.location}}<br>
-                    <i class="fas fa-mobile-alt pr-2"></i>{{restaurant.phone}}<br>
-                    <i class="fas fa-utensils pr-2"></i>{{restaurant.category}}</p>
-                    <p class="u-text u-text-default u-text-4 u-font-newscycle u-custom-font">{{restaurant.description}}</p>
-                  <div class="lightbox iframe-container">
-                    <iframe src="{{restaurant.google_map}}" width="100%" height="400px" style="border:0;" allowfullscreen="0" loading="lazy"></iframe>
-                  </div>              
-                  <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-font-newscycle u-custom-font">Close</a>
+                <p class="u-text u-text-default u-font-newscycle u-custom-font"> 
+                  <i class="fas fa-map-marker-alt pr-2"></i>{{this.location}}<br>
+                  <i class="fas fa-mobile-alt pr-2"></i>{{this.phone}}
+                </p>
+
+                <h6 class="u-text u-text-palette-3-base u-text-5  u-font-newscycle u-custom-font">
+                  <i class="fas fa-utensils pr-2"></i>{{this.category}}
+                </h6>
+
+                <a href="/shops/{{this._id}}" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-font-newscycle u-custom-font">Know More</a>
                 </div>
-                </div>                
               </div>
+            </div>
           </div>
-        </section>
+        {{/each}}
+      </main>
+      {{!-- restaurant showcase end --}}
+
+      {{!-- lightbox start --}}
+      <div class="lightbox__mask" style="display:{{showLightBox}}">                
+        <div class="lightbox__card">
+          <div class="lightbox__holder">
+
+          <h3 class="u-custom-font u-font-oswald u-text u-text-3">{{restaurant.name}}&nbsp;<small>{{restaurant.name_en}}</small>
+            <span class="lightbox badge">
+              {{restaurant.rating}}
+              <i class="fas fa-star fa-s"></i>                          
+            </span>
+          </h3>
+
+          <p class="u-text u-text-palette-3-base u-text-4">
+            <i class="fas fa-map-marker-alt pr-2"></i>{{restaurant.location}}<br>
+            <i class="fas fa-mobile-alt pr-2"></i>{{restaurant.phone}}<br>
+            <i class="fas fa-utensils pr-2"></i>{{restaurant.category}}
+          </p>
+
+          <p class="u-text u-text-default u-text-4 u-font-newscycle u-custom-font">{{restaurant.description}}</p>
+          
+          <div class="lightbox iframe-container">
+            <iframe src="{{restaurant.google_map}}" width="100%" height="400px" style="border:0;" allowfullscreen="0" loading="lazy"></iframe>
+          </div>              
+          
+          <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-font-newscycle u-custom-font">Close</a>
+
+          </div>
+        </div>                
+      </div>
+      {{!-- lightbox end --}}
+  </div>
+</section>

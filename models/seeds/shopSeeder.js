@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const Restaurant = require('../restaurant.js')
-const restaurantSeedArr = [
+const Shop = require('../shop.js')
+const shopSeedArr = [
 {
   "id": 1,
   "name": "Sababa 沙巴巴中東美食",
@@ -108,11 +108,11 @@ db.on('error', () => {
 
 db.once('open', () => {
   console.log('mongodb connected in seeder file')
-  for (let i = 0; i < restaurantSeedArr.length; i++) {
-    let docObj = restaurantSeedArr[i]
-    Restaurant.create({
+  for (let i = 0; i < shopSeedArr.length; i++) {
+    let docObj = shopSeedArr[i]
+    Shop.create({
       name: docObj.name,
-      en_name: docObj.en_name,
+      name_en: docObj.name_en,
       category:docObj.category,
       image: docObj.image,
       location: docObj.location,

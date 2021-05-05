@@ -1,12 +1,15 @@
 const mongoose = require('mongoose')
 
 //定義資料結構 (Ref:https://mongoosejs.com/docs/schematypes.html)
-const restaurantSchema = new mongoose.Schema({
+const shopSchema = new mongoose.Schema({
   name: {
     type: String, 
     required: true
   },
-  name_en: String,
+  name_en: {
+    type:String,
+    required: false
+  },
   category: {
     type: String, 
     required: true
@@ -24,11 +27,11 @@ const restaurantSchema = new mongoose.Schema({
     required: true
   },
   google_map: {
-    type: String,
-    required: true
+    type:String,
+    required: false
   },
   rating: {
-    type: String,
+    type: Number,
     required: true
   },
   description: {
@@ -37,5 +40,5 @@ const restaurantSchema = new mongoose.Schema({
   },
 })
 
-module.exports = mongoose.model('Restaurant', restaurantSchema)
+module.exports = mongoose.model('Shop', shopSchema)
 
