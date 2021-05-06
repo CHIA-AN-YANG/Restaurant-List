@@ -13,6 +13,7 @@ router.get('/search', (req, res) => {
 
     categoryArr.length = 0
     for(x in data){ categoryArr.push(data[x].category) }
+    categoryArr = [...new Set(categoryArr)]
 
     let searchArr = []
     let zhTwArr = data.filter(el =>{ return el.name.toString().toLowerCase().includes(keyword.toString().toLowerCase())})
@@ -31,11 +32,11 @@ router.get('/category/:category', (req, res) => {
   .then(data => { 
     categoryArr.length = 0
     for(x in data){ categoryArr.push(data[x].category) }
+    categoryArr = [...new Set(categoryArr)]
     filteredData = data.filter(el =>{ return el.category==category }) 
   })
   .then(() =>{
-    const dataSet = [...new Set(filteredData)]
-    res.render('index',{restaurants: dataSet, showLightBox: noLightBox, categories: categoryArr})})
+    res.render('index',{restaurants: filteredData, showLightBox: noLightBox, categories: categoryArr})})
   .catch(error => console.error(error))
 })
 

@@ -5,8 +5,6 @@ const exphbs = require('express-handlebars')
 const port = 5000
 const methodOverride = require('method-override')
 
-
-
 // static folder
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
