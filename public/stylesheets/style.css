@@ -37,9 +37,6 @@ text-align: left;
 section.u-align-center{
   padding-bottom: 100px;
 }
-.u-sheet{
-  height: auto;
-}
 .u-repeater-item{
   flex: 1 ;
   padding: 1em;
