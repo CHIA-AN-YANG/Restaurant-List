@@ -1,7 +1,9 @@
 /*this is css personally added by Chia-An Yang */
 
+/* Search "$" for keywords: Global/Form/index/RWD */
 
-/* Global - Form */
+/* $Global */
+/* $Form */
 textarea {
   resize: none;
 }
@@ -25,7 +27,10 @@ text-align: left;
 .btn-form{
   background-color: #ff843d
 }
-/* index */
+.c-f{
+  clear: both;
+}
+/* $index */
 .u-logo{
   padding-bottom: 1em;
 }
@@ -74,7 +79,12 @@ text-align: left;
   
  }
  .row--badge{
-   margin: 0.5rem 0;
+   position: relative;
+   margin: 0;
+   display: flex;
+   align-items: center;
+   font-size: 1rem;
+   color: #000;
  }
  .row--badge>*{
   margin-right: 0.5rem;
@@ -83,16 +93,14 @@ text-align: left;
    background-color:#d9280d;
    border-radius: 1rem;
    color: #FFF;
-   font-size: 1rem;
+   font-size: inherit;
    height: 1.7rem;
    font-weight: normal;
-   margin-top: 10px;
  }
  .badge>span{
    display: inline-block;
    padding: 0 5px;
  }
-
  .container--add-shop{
   position: relative;
   margin: 0 auto 5px;
@@ -100,7 +108,10 @@ text-align: left;
   cursor: pointer;
   transition: all 0.5s;
  }
- .btn--add-shop{
+ .container--add-shop>a{
+   float: left;
+ }
+ .btn--add-shop,.btn--categorize{
    width: 32px;
    height: 32px;
    float: left;
@@ -109,6 +120,12 @@ text-align: left;
    border-right: 2px solid #FFF;
    margin: 0;
    padding-top: 2px;
+}
+.btn--categorize{
+  width: 34px;
+  background-color: #fff;
+  color: #ff843d;
+  border-right: 2px solid #ff843d;
 }
 .text--add-shop{
    display: block;
@@ -122,17 +139,163 @@ text-align: left;
    font-weight: 700;
    margin: 0;
 }
-.container--add-shop:hover{
+.searchbar--categorize,.searchbar--categorize ul{
+  display: block;
+  width: 220px;
+  line-height: 32px;
+  height: 32px;
+  font-size: 16px;
+  border: none;
+  border-right: 2px solid #FFF;
+  margin:0;
+  padding: 0;
+}
+.searchbar--categorize{
+  position: relative;
+  float:left;
+}
+.searchbar--categorize ul{
+  list-style-type: none;
+  height: 32px;
+  font-weight: 700;
+  position: absolute;
+  top:0;
+  left: 0;
+  background-color: #fff;
+  height: 32px;
+  width: 220px;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 10;
+}
+.searchbar--categorize ul:hover{
+  height: auto;
+}
+.searchbar--categorize ul>li{
+  position: relative;
+  background-color: #fff;
+  height: 32px;
+  padding-left: 8px;
+  opacity: 0.8;
+  transition:inherit;
+}
+.searchbar--categorize ul>li:hover{
+  background-color: #ff843d;
+  color: #fff;
+}
+.searchbar--categorize ul a{
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 220px;
+  text-decoration: none;
+  color: inherit;
+}
+.link--add-shop{
+  background-color: #ff843d;
+}
+.link--add-shop:hover{
   background-color: #d9280d;
 }
-button.text--router,a.text--router{
+button.text--router,a>.text--router{
   font-size: 1rem;
   padding: 0.2rem 0.5rem;
   appearance: none;
   appearance:none;
   outline: none;
   border: none;
+  color: #000;
   display: inline-block;
   background-color: transparent;
   background: transparent;
+}
+ /* $index - $RWD */
+ .u-repeater {
+  margin-bottom: 2em;
+}
+@media (max-width: 576px) {
+  /* main RWD */
+  .u-repeater {
+    grid-template-columns: repeat(1, 100%);
+    grid-row-gap: 1em;
+  }
+  .u-btn{
+    margin-top: 10px;
+    margin-bottom: 8px;
+    padding: 10px 20px;
+  }
+  p{ font-size: 14px; }
+  .img-container{
+    height: 200px;
+  }
+  /* header RWD */
+  .container--add-shop{
+    width: 254px;
+  }
+  .btn--categorize{
+    width: 32px;
+  }
+  .searchbar--categorize{
+    width: 222px;
+    border-right: 0;
+  }
+}
+@media (min-width: 577px) and (max-width: 767px) {
+    /* main RWD */ 
+  .u-repeater {
+    grid-template-columns: repeat(2, 49%);
+    grid-row-gap: 2%;
+  }
+  .img-container { height: 180px; }
+  .row--badge{
+    font-size: 14px;
+  }
+  .badge{
+    height: 1.4rem;
+  }
+  .u-btn {
+    margin-top: 8px;
+    margin-bottom: 0px;
+    padding: 5px 10px;
+  }
+  h3 { 
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+ }
+  p{ font-size: 14px; }
+ }
+@media (min-width: 768px) and (max-width: 992px) {
+  /* main RWD */
+  .u-repeater {
+    grid-template-columns: repeat(3, 32%);
+    grid-row-gap: 2%;
+    margin: 0 auto;
+  }
+  .u-repeater-item{
+    padding: 0.5em;
+  }
+  .img-container { 
+    height: 150px; 
+  }
+  .row--badge{ 
+    font-size: 1em; 
+    justify-content: space-between; 
+  }
+  .badge{ 
+    height: 1.5em; 
+    margin-right: 0; 
+  }
+  h3 { 
+    font-size: 24px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+ }
+  .u-btn{
+    margin-top: 10px;
+    margin-bottom: 8px;
+    padding: 10px 20px;
+  }
 }

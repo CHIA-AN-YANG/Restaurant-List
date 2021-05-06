@@ -5,9 +5,14 @@ const Shop = require("../../models/shop")
 //Homepage
 router.get('/', (req, res) => {
   const noLightBox = "none"
+  let categoryArr=[]
   Shop.find()
   .lean()
-  .then(data => res.render('index',{restaurants: data, showLightBox: noLightBox}))
+  .then(data =>{
+    for(x in data){ categoryArr.push(data[x].category) }
+    return data
+  })
+  .then(data => res.render('index',{restaurants: data, showLightBox: noLightBox, categories: categoryArr}))
   .catch(error => console.error(error))  
 })
 

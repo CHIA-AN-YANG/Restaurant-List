@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Shop = require("../../models/shop")
+let categoryArr = []
 
 //Search
 router.get('/search', (req, res) => {
@@ -9,13 +10,33 @@ router.get('/search', (req, res) => {
   Shop.find()
   .lean()
   .then(data => {
+
+    categoryArr.length = 0
+    for(x in data){ categoryArr.push(data[x].category) }
+
     let searchArr = []
     let zhTwArr = data.filter(el =>{ return el.name.toString().toLowerCase().includes(keyword.toString().toLowerCase())})
     let enArr = data.filter(el =>{ if(el['name_en']){ return el['name_en'].toString().toLowerCase().includes(keyword.toString().toLowerCase())}})
     searchArr = [...new Set(zhTwArr.concat(enArr))]
     return searchArr })
-  .then(els => res.render('index',{restaurants: els, showLightBox: noLightBox}))
+  .then(els => res.render('index',{restaurants: els, showLightBox: noLightBox, categories: categoryArr}))
   .catch(error => console.error(error))  
+})
+router.get('/category/:category', (req, res) => {
+  const noLightBox = "none"
+  const category = req.params.category
+  let filteredData = []
+  Shop.find()
+  .lean()
+  .then(data => { 
+    categoryArr.length = 0
+    for(x in data){ categoryArr.push(data[x].category) }
+    filteredData = data.filter(el =>{ return el.category==category }) 
+  })
+  .then(() =>{
+    const dataSet = [...new Set(filteredData)]
+    res.render('index',{restaurants: dataSet, showLightBox: noLightBox, categories: categoryArr})})
+  .catch(error => console.error(error))
 })
 
 //Create
@@ -78,7 +99,7 @@ router.put('/:id', (req, res) => {
 
   if(req.body.description){description=req.body.description}
   if(req.body.name_en){name_en=req.body.name_en}
-  if( req.body.google_map){google_map= req.body.google_map}
+  if(req.body.google_map){google_map= req.body.google_map}
 
   Shop.findById(id)
     .then(data => {  

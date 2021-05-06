@@ -6,11 +6,12 @@
   <div class="form-group row">
     <div class="col">
       <label for="name">餐廳名字</label>
-      <input class="form-control" type="text" name="name" value="{{restaurant.name}}" aria-describedby="nameHelp" required>
+      <input class="form-control" type="text" name="name" value="{{restaurant.name}}" aria-describedby="nameHelp" minlength="3" required>
     </div>
     <div class="col">
       <label for="en_name">英文餐廳名</label>
-      <input class="form-control" type="text" name="name_en" value="{{restaurant.name_en}}" aria-describedby="en_nameHelp">  
+      <input class="form-control" type="text" name="name_en" value="{{restaurant.name_en}}" pattern="[A-Za-z\s']{3,}" aria-describedby="name_enHelp">  
+
     </div>
 
   </div>
@@ -18,7 +19,7 @@
   <div class="form-group row">
     <div class="col">
       <label for="category">分類</label>
-      <select  class="custom-select" id="category" name="category">
+      <select  class="custom-select" id="category" name="category" required>
         <option  value="{{restaurant.category}}" selected>{{restaurant.category}}</option>
         <option value="日本料理">日本料理</option>
         <option value="中東美食">中東美食</option>
@@ -29,15 +30,26 @@
       </select>      
     </div>
     <div class="col">
-    <label for="phone">餐廳電話</label>
-    <input class="form-control" type="text" name="phone" value="{{restaurant.phone}}" max-length="13" required>        
+      <label for="phone">餐廳電話</label>
+        <input class="form-control" 
+               type="tel" name="phone" 
+               value="{{restaurant.phone}}"
+               pattern="[0-9]{2}-[0-9]{3}-[0-9]{4,5}"
+               aria-describedby="phoneHelp"            
+               required> 
+        <small id="phoneHelp" class="form-text text-muted">格式：00-000-0000</small>       
     </div>
 
   </div>
 
   <div class="form-group">
     <label for="image">圖片網址</label>
-    <input class="form-control" type="text" name="image" value="{{restaurant.image}}" required>  
+    <input class="form-control" 
+           type="url" name="image"
+           placeholder="https://example.com"
+           pattern="(www|http:|https:).*" size="30"
+           value="{{restaurant.image}}"
+           required>  
   </div>
 
   <div class="form-group">
@@ -54,12 +66,16 @@
 
   <div class="form-group">
     <label for="google_map">插入Google Map的 (iframe裡的src網址)</label>
-    <textarea class="form-control" name="google_map" rows="2">{{restaurant.google_map}}</textarea>
+    <textarea class="form-control" name="google_map" pattern="(www|http:|https:).*" rows="2">
+      {{restaurant.google_map}}
+    </textarea>
   </div>
 
   <div class="form-group">
     <label for="description">寫個這間餐廳的小筆記</label>
-    <textarea class="form-control" name="description" rows="3" maxlength="200">{{restaurant.description}}</textarea>
+    <textarea class="form-control" name="description" rows="3" maxlength="200">
+      {{restaurant.description}}
+    </textarea>
   </div>
   
   <button type="submit" class="btn btn-form">submit change</button>
@@ -67,7 +83,5 @@
    <div class="btn btn-info">go back</div>  
   </a>
 
-
- </fieldset>
 </form>
 </section>

@@ -26013,8 +26013,8 @@ a.u-link.u-text-hover-grey-90:hover {
     }
     p:not(.u-text-variant)
     {
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
     }
     .u-btn
     {

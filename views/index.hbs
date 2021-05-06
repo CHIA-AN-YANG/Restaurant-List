@@ -9,10 +9,22 @@
     </p>
     
     <div class="container--add-shop">
-      <a href="/shops/add">
+      <a class="link--add-shop" href="/shops/add">
         <div class="btn--add-shop"><i class="fas fa-plus"></i></div>
         <div class="text--add-shop">新增你的餐廳吧！</div>
       </a>
+      <div class="btn--categorize"><i class="fas fa-drumstick-bite"></i></div>
+      <div class="searchbar--categorize">          
+          <ul class="">
+            <li value="question">今天想吃哪種料理呢？</li>
+            {{#each categories}}
+                <li>
+                  <a href="/shops/category/{{this}}">{{this}}</a>                  
+                </li>
+            {{/each}}
+          </ul>
+       </div> 
+       <div class="c-f"></div>     
     </div>  
           
     <form action="/shops/search" method="GET">
@@ -56,9 +68,9 @@
                   <i class="fas fa-mobile-alt pr-2"></i>{{this.phone}}
                 </p>
 
-                <h6 class="u-text u-text-palette-3-base u-text-5  u-font-newscycle u-custom-font">
+                <p class="u-text u-text-palette-3-base u-font-newscycle u-custom-font">
                   <i class="fas fa-utensils pr-2"></i>{{this.category}}
-                </h6>
+                </p>
 
                 <a href="/shops/{{this._id}}" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-font-newscycle u-custom-font">Know More</a>
                 </div>
