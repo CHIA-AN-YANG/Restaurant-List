@@ -1,6 +1,6 @@
 /*this is css personally added by Chia-An Yang */
 
-/* Search "$" for keywords: Global/Form/index/RWD */
+/* Search with "$" for keywords: Global / Form / Index / RWD / Index - Header */
 
 /* $Global */
 /* $Form */
@@ -30,31 +30,37 @@ text-align: left;
 .c-f{
   clear: both;
 }
-/* $index */
+/* $Index */
 .u-logo{
   padding-bottom: 1em;
 }
- .u-repeater-item{
-   flex: 1 ;
-   padding: 1em;
- }
- .img-container{
-   height: 220px;
-   width: 100%;
-   overflow: hidden;
- }
- input.u-search{
-   display: block;
-   width: 500px;
-   max-width: 90vw;
-   line-height: 2em;   
-   padding-left: 1em;
-   appearance:none;
-   -webkit-appearance: none;
-   outline: none;
-   border: 1px solid gray;
-   border-radius: 1em 0 0 1em;
-   margin:0;
+section.u-align-center{
+  padding-bottom: 100px;
+}
+.u-sheet{
+  height: auto;
+}
+.u-repeater-item{
+  flex: 1 ;
+  padding: 1em;
+}
+.img-container{
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+}
+input.u-search{
+  display: block;
+  width: 500px;
+  max-width: 90vw;
+  line-height: 2em;   
+  padding-left: 1em;
+  appearance:none;
+  -webkit-appearance: none;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 1em 0 0 1em;
+  margin:0;
 }
  button.u-search{
    display: block;
@@ -101,6 +107,7 @@ text-align: left;
    display: inline-block;
    padding: 0 5px;
  }
+  /* $Index - $Header */
  .container--add-shop{
   position: relative;
   margin: 0 auto 5px;
@@ -209,6 +216,19 @@ button.text--router,a>.text--router{
   display: inline-block;
   background-color: transparent;
   background: transparent;
+}
+
+ /* $index - $Footer */
+footer.u-footer .u-small-text{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family:'News Cycle','sans-serif';
+  color: #E7e7e7;
+}
+section.u-backlink{
+  padding-top: 0;
+  font-family:'News Cycle','sans-serif';
+  color: #e7e7e7;
 }
  /* $index - $RWD */
  .u-repeater {
