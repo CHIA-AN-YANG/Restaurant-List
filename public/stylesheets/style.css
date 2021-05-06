@@ -1,6 +1,6 @@
 /*this is css personally added by Chia-An Yang */
 
-/* Search "$" for keywords: Global/Form/index/RWD */
+/* Search with "$" for keywords: Global / Form / Index / RWD / Index - Header */
 
 /* $Global */
 /* $Form */
@@ -30,7 +30,7 @@ text-align: left;
 .c-f{
   clear: both;
 }
-/* $index */
+/* $Index */
 .u-logo{
   padding-bottom: 1em;
 }
@@ -101,6 +101,7 @@ text-align: left;
    display: inline-block;
    padding: 0 5px;
  }
+  /* $Index - $Header */
  .container--add-shop{
   position: relative;
   margin: 0 auto 5px;
