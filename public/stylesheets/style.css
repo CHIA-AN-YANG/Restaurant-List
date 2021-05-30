@@ -105,6 +105,9 @@ input.u-search{
    padding: 0 5px;
  }
   /* $Index - $Header */
+ .nav-item {
+    margin-left: auto;
+  }
  .container--add-shop{
   position: relative;
   margin: 0 auto 5px;

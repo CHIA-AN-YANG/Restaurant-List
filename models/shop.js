@@ -2,6 +2,12 @@ const mongoose = require('mongoose')
 
 //定義資料結構 (Ref:https://mongoosejs.com/docs/schematypes.html)
 const shopSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true
+  },
   name: {
     type: String, 
     required: true
