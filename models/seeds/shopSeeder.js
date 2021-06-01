@@ -1,6 +1,4 @@
-const mongoose = require('mongoose')
-const Shop = require('../shop.js')
-const shopSeedArr = [
+let shopRawData = [
 {
   "id": 1,
   "name": "Sababa 沙巴巴中東美食",
@@ -99,28 +97,5 @@ const shopSeedArr = [
 }
 ]
 
-mongoose.connect('mongodb://localhost:27017/local', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
+module.exports = shopRawData
 
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected in seeder file')
-  for (let i = 0; i < shopSeedArr.length; i++) {
-    let docObj = shopSeedArr[i]
-    Shop.create({
-      name: docObj.name,
-      name_en: docObj.name_en,
-      category:docObj.category,
-      image: docObj.image,
-      location: docObj.location,
-      phone: docObj.phone,
-      google_map: docObj.google_map,
-      rating: docObj.rating,
-      description: docObj.description      
-    })
-  }
-  console.log('done')
-})
