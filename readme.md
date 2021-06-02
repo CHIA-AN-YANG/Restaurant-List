@@ -58,8 +58,8 @@ npm run seed
 ```
 To view sample data, please log in with the following account:
 
-- email: 'foodie@seeder.com'
-- password: 'foodlover
+- email: foodie@seeder.com
+- password: foodlover
 
 
 
