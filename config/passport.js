@@ -34,13 +34,18 @@ module.exports = app => {
   passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_ID,
     clientSecret: process.env.FACEBOOK_SECRET,
-    callbackURL: process.env.FACEBOOK_CALLBACK,
+    callbackURL: process.env.FACEBOOK_CALLBACK, //FB dev => Setting => FB login => 有效的重新導向URI
     profileFields: ['email', 'displayName']
-  }, (accessToken, refreshToken, profile, done) => {
+  }, (accessToken, refreshToken, profile, done) => { //done: originally cb (callbackfunction)
+    console.log(profile._json)
     const { email, name } = profile._json
-    User.findOne({ email })
+    User.findOne({ user_email: email })
     .then(user => {
-      if(user){return done(null, user)}
+      console.log('user='+user)
+      if(user){
+        console.log('user already exists, logging you in...')
+        return done(null, user)
+      }else{
       const password = Math.random().toString(36).slice(-8)
       return bcrypt
       .genSalt(10)
@@ -49,10 +54,11 @@ module.exports = app => {
         user_name: name,
         user_email: email,
         password: hash
-    }))
+      }))}
+    })
     .then(user => done(null, user))
     .catch(err => done(err, false))
-  })}))
+  }))
 
     // 設定序列化與反序列化
     passport.serializeUser((user, done) => { done(null, user.id) })

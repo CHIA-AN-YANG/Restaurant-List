@@ -22,7 +22,7 @@ router.get('/search', (req, res) => {
     })
     searchArr = [...new Set(zhTwArr.concat(enArr))]
     return searchArr })
-  .then(els => res.render('index',{ restaurants: els, categories: categoryArr, lightbox: false }))
+  .then(els => res.render('index',{ restaurants: els, categories: categoryArr}))
   .catch(error => console.error(error))  
 })
 router.get('/category/:category', (req, res) => {
@@ -38,7 +38,7 @@ router.get('/category/:category', (req, res) => {
     filteredData = data.filter(el =>{ return el.category==category }) 
   })
   .then(() =>{
-    res.render('index',{restaurants: filteredData, categories: categoryArr, lightbox: false })})
+    res.render('index',{restaurants: filteredData, categories: categoryArr})})
   .catch(error => console.error(error))
 })
 
@@ -63,12 +63,17 @@ router.post('/', (req, res) => {
 //Read
 router.get('/:id', (req, res) => {
   const id = req.params.id
-  Shop.findById(id)
+  const userId = req.user._id
+  Shop.find({userId})
   .lean()
-  .then(data => {
-    // const resSingle = data.find(el => el._id.toString() === id.toString());
-    res.render('index',{restaurants: data, restaurant: resSingle, lightbox: true }
-  )})
+  .then( fullData => {
+    Shop.findById(id)
+    .lean()
+    .then(data => {
+      res.render('index',{restaurants: fullData, restaurant: data, lightboxShow: true }
+    )})
+
+  })
   .catch(error => console.error(error))  
 })
 
@@ -91,17 +96,15 @@ router.put('/:id', (req, res) => {
 
   Shop.findById(id)
     .then(data => {  
-      data = { name, name_en, category, image, location, phone, google_map, rating, description }
-  
-      // data.name=name
-      // data.name_en=name_en
-      // data.category=category
-      // data.image=image
-      // data.location=location
-      // data.phone=phone
-      // data.google_map=google_map
-      // data.rating=rating
-      // data.description=description
+      data.name=name
+      data.name_en=name_en
+      data.category=category
+      data.image=image
+      data.location=location
+      data.phone=phone
+      data.google_map=google_map
+      data.rating=rating
+      data.description=description
       data.save()
     })
     .then(() => {

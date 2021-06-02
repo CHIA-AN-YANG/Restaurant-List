@@ -25,7 +25,7 @@ router.post('/register', (req, res) => {
   //check if user exists
   User.findOne({user_email: email}).then(user => { 
     if(user){ errors.push({message:'用戶已經存在，請登入。'}) }
-    if(errors.length >0){ 
+    if(errors.length){ 
       return res.render('register', {errors, name, email}) 
     }
     //create new user data

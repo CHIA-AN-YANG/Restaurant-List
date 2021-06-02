@@ -1,7 +1,7 @@
 
 {{#if warning_msg}}
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>未登入</strong> {{warning_msg}}
+  <strong>未登入或登入不成功</strong> {{warning_msg}}<a href="/users/login"> Log in</a>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -19,7 +19,7 @@
 
 {{#if errors}}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Error!</strong>
+  <strong>表格有錯誤</strong>
   {{#each errors}}
     {{this.message}}
   {{/each}}
