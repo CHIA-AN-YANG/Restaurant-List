@@ -3,6 +3,8 @@
 
 Restaurant List is a private restaurant collection for foodies. You can view your favorite restaurants here. Add, modify, and record your own favorite restaurant with this restaurant list!
 
+You can also interact with its online version at: https://powerful-everglades-45881.herokuapp.com/ 
+
 ## Installation
 
 You can clone this project from here: [github link](https://github.com/CHIA-AN-YANG/Restaurant-List.git)
@@ -30,7 +32,9 @@ npm install
 
 ## Usage
 
-The npm used in this project is **7.6.3**. This project is built under **Node.js v15.10.0** runtime environment, with Express framework. To start it on local server, simply run the app.js file with `node` command in CLI:
+The npm used in this project is **7.6.3**. This project is built under **Node.js v15.10.0** runtime environment, with Express framework. 
+### Start
+To start it on local server, simply run the app.js file with `node` command in CLI:
 
 ```bash
 node app.js
@@ -41,7 +45,23 @@ Since the nodemon is intalled under project folder, it takes npx to run nodemon:
 ```bash
 npx nodemon
 ```
+or you can also use the script:
+```bash
+npm run dev
+```
 Now, enter http://localhost:5000/ in your browser and you are good to go!
+
+### Seeding
+This is the script for seeding, the seeder file is userShopSeeder, which contains the information of one user with 8 restaurant data.
+```
+npm run seed
+```
+To view sample data, please log in with the following account:
+
+- email: 'foodie@seeder.com'
+- password: 'foodlover
+
+
 
 
 ## Contributing

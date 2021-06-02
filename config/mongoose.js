@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')  
 mongoose.connect(                     
-	'mongodb://localhost:27017/restaurant-list', //最後面是專案名稱
+	MONGODB_URI, //最後面是專案名稱
 	 { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true	}
 ) 
 
