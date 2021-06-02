@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')  
+if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
 mongoose.connect(                     
-	MONGODB_URI, //最後面是專案名稱
+	process.env.MONGODB_URI, //最後面是專案名稱
 	 { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true	}
 ) 
 
