@@ -21,14 +21,18 @@
 </head>
 
  <body class="u-body" cz-shortcut-listen="true">
-  <header class="u-clearfix u-header u-header" id="sec-2b6b">
+  <header class="u-clearfix u-header" id="sec-2b6b">
     <nav class="navbar navbar-expand-md">
       <a href="https://github.com/CHIA-AN-YANG" class="navbar-brand mb-2" title="visit my Github!">
         <img src="/asset/logo.svg">
       </a>
       <div class="nav-item row">
-        <a class="nav-link" href="/users/login">Log in<span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="/users/register">Register</a>
+        {{#if isAuthenticated}}
+          <a class="nav-link" href="/users/logout">log out</a>
+        {{else}}
+          <a class="nav-link" href="/users/login">Log in<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/users/register">Register</a>
+        {{/if}}
       </div>
     </nav>
   </header>

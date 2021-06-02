@@ -30,6 +30,21 @@ text-align: left;
 .c-f{
   clear: both;
 }
+.an_bg-soft{
+  background-color: rgb(252, 252, 217);
+}
+.an_bg-soft .card{
+  background-color: #fff;
+  font-family:'News Cycle','sans-serif';
+  letter-spacing: 1px;
+  max-width: 550px;
+  left: 50%;
+  transform: translate(-50%, 0)
+}
+.an_wrapper-user{
+  padding-bottom: 50px;
+  padding-top: 2em;
+}
 /* $Index */
 .u-logo{
   padding-bottom: 1em;
