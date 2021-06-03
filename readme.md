@@ -62,13 +62,13 @@ npm run seed
 ```
 To view sample data on app, please log in with the following account after seeding:
 
-- name: seedUser1,
-- email: user1@example.com,
-- password: 12345678
+- name:      seedUser1
+- email:     user1@example.com
+- password:  12345678
 
-- name: seedUser2,
-- email: user2@example.com,
-- password: 12345678
+- name:      seedUser2
+- email:     user2@example.com
+- password:  12345678
 
 ## Contributing
-Drop me an email if you have any suggestions for improvement! My email address is: chiaan.y.creativeworker@gmail.com.
+Drop me a line in email if you have any suggestions for improvement! My email address is: chiaan.y.creativeworker@gmail.com
