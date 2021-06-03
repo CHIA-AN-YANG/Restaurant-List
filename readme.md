@@ -8,7 +8,7 @@ You can also interact with its online version at: https://powerful-everglades-45
 ## Installation
 
 You can clone this project from here: [github link](https://github.com/CHIA-AN-YANG/Restaurant-List.git)
-
+### 3. Web app installation
 Clone with HTTPs:
 
 ```bash
@@ -23,16 +23,19 @@ Run npm install to install required plugins.
 ```bash
 npm install
 ```
-## About the Webpage
+### 2. Database installation
+1. download MongoDB's community service version(Not enterprise one) from MongoDB's website. Preferred filetype is msi.
+2. Use Mango Campass or Roto 3T for GUI. Create a database connection at localhost 27170 (http://localhost). This host and port set is a preset location for mango database.
 
+## About the Webpage
 1. Click on the restaurant to see its detailed description and locate its position on google map.
 2. Find the restaurant by any related letters with the search function. 
 3. Add your new favorite restaurant with the orange button on index page. 
 4. Modify or delete outdated restaurant with CRUD functions.
 
 ## Usage
+The npm used in this project is **7.6.3**. This project is built under **Node.js v15.10.0** runtime environment, with Express framework.
 
-The npm used in this project is **7.6.3**. This project is built under **Node.js v15.10.0** runtime environment, with Express framework. 
 ### Start
 To start it on local server, simply run the app.js file with `node` command in CLI:
 
@@ -49,20 +52,23 @@ or you can also use the script:
 ```bash
 npm run dev
 ```
-Now, enter http://localhost:5000/ in your browser and you are good to go!
+Now, enter http://localhost:3000/ in your browser and you are good to go!
 
 ### Seeding
-This is the script for seeding, the seeder file is userShopSeeder, which contains the information of one user with 8 restaurant data.
+This is the script for seeding, the seeder file is `userShopSeeder.js`, 
+which produces information of two user with 6 restaurant data in total.
 ```
 npm run seed
 ```
-To view sample data, please log in with the following account:
+To view sample data on app, please log in with the following account after seeding:
 
-- email: foodie@seeder.com
-- password: foodlover
+- name: seedUser1,
+- email: user1@example.com,
+- password: 12345678
 
-
-
+- name: seedUser2,
+- email: user2@example.com,
+- password: 12345678
 
 ## Contributing
-Drop me a line on Slack if you have sent me pull request, I will look through it carefully. For major changes, please open an issue to discuss my project.
+Drop me an email if you have any suggestions for improvement! My email address is: chiaan.y.creativeworker@gmail.com.
