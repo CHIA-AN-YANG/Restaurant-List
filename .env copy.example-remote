@@ -1,0 +1,6 @@
+FACEBOOK_ID=SKIP
+FACEBOOK_SECRET=SKIP
+FACEBOOK_CALLBACK= <remote web-app server uri>/auth/facebook/callback
+SESSION_SECRET=DirtyLittleSecret
+MONGODB_URI=mongodb: <remote database uri>
+PORT=5000
