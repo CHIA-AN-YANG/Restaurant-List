@@ -27,6 +27,9 @@ npm install
 1. download MongoDB's community service version(Not enterprise one) from MongoDB's website. Preferred filetype is msi.
 2. Use Mango Campass or Roto 3T for GUI. Create a database connection at localhost 27170 (http://localhost). This host and port set is a preset location for mango database.
 
+### 3. Set up environmental variables
+Please refer to two separate env.example files: `env.example.local` and `env.example.remote`, for local and remote environmental variables on this webapp.
+
 ## About the Webpage
 1. Click on the restaurant to see its detailed description and locate its position on google map.
 2. Find the restaurant by any related letters with the search function. 
