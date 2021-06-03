@@ -8,7 +8,7 @@ You can also interact with its online version at: https://powerful-everglades-45
 ## Installation
 
 You can clone this project from here: [github link](https://github.com/CHIA-AN-YANG/Restaurant-List.git)
-### 3. Web app installation
+### 1. Web app installation
 Clone with HTTPs:
 
 ```bash
