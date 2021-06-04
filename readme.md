@@ -5,6 +5,14 @@ Restaurant List is a private restaurant collection for foodies. You can view you
 
 You can also interact with its online version at: https://powerful-everglades-45881.herokuapp.com/ 
 
+## About the Webpage
+1. Click on the restaurant to see its detailed description and locate its position on google map.
+2. Find the restaurant by any related letters with the search function. 
+3. Add your new favorite restaurant with the orange button on index page. 
+4. Modify or delete outdated restaurant with CRUD functions.
+
+---
+
 ## Installation
 
 You can clone this project from here: [github link](https://github.com/CHIA-AN-YANG/Restaurant-List.git)
@@ -30,16 +38,12 @@ npm install
 ### 3. Set up environmental variables
 Please refer to two separate env.example files: `env.example.local` and `env.example.remote`, for local and remote environmental variables on this webapp.
 
-## About the Webpage
-1. Click on the restaurant to see its detailed description and locate its position on google map.
-2. Find the restaurant by any related letters with the search function. 
-3. Add your new favorite restaurant with the orange button on index page. 
-4. Modify or delete outdated restaurant with CRUD functions.
+---
 
 ## Usage
 The npm used in this project is **7.6.3**. This project is built under **Node.js v15.10.0** runtime environment, with Express framework.
 
-### Start
+### 1. Start
 To start it on local server, simply run the app.js file with `node` command in CLI:
 
 ```bash
@@ -57,7 +61,7 @@ npm run dev
 ```
 Now, enter http://localhost:3000/ in your browser and you are good to go!
 
-### Seeding
+### 2. Seeding
 This is the script for seeding, the seeder file is `userShopSeeder.js`, 
 which produces information of two user with 6 restaurant data in total.
 ```
@@ -65,13 +69,15 @@ npm run seed
 ```
 To view sample data on app, please log in with the following account after seeding:
 
-- name:      seedUser1
-- email:     user1@example.com
-- password:  12345678
+> - name:      seedUser1
+> - email:     user1@example.com
+> - password:  12345678
 
-- name:      seedUser2
-- email:     user2@example.com
-- password:  12345678
+> - name:      seedUser2
+> - email:     user2@example.com
+> - password:  12345678
+
+---
 
 ## Contributing
 Drop me a line in email if you have any suggestions for improvement! My email address is: chiaan.y.creativeworker@gmail.com
