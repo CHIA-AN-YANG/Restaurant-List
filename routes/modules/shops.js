@@ -108,7 +108,6 @@ router.put('/:id', (req, res) => {
       data.save()
     })
     .then(() => {
-      console.log("Edit success!");
       res.redirect('/')}
     )
     .catch(error => console.log(error))

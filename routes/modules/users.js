@@ -11,6 +11,7 @@ router.get('/register', (req, res) => {
 //register -- send form
 router.post('/register', (req, res) => {
   const errors = []
+  //error handling
   const { name, email, password, confirmPassword } = req.body
   if (!name || !email || !password || !confirmPassword) {
     errors.push({ message: '所有欄位都是必填。' })
@@ -18,7 +19,6 @@ router.post('/register', (req, res) => {
   if (password !== confirmPassword) {
     errors.push({ message: '密碼與確認密碼不相符。' })
   }
-  console.log('errors array: ', errors)
   if (errors.length) {
     return res.render('register', {errors, name, email})
   }
@@ -51,7 +51,7 @@ router.post('/register', (req, res) => {
 router.get('/login', (req, res) => {
   return res.render('login')
 })
-// 加入 middleware，驗證 request 登入狀態
+// 加入 middleware-passport.js，驗證 request 登入狀態
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/users/login',

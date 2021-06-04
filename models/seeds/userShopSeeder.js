@@ -8,7 +8,7 @@ const User = require('../user')
 const db = require('../../config/mongoose')
 
 //Divide shop data with required length for each user
-//未來考慮寫更多user的seeder file，儘量降低耦合少使用常數
+//使用陣列，儘量降低耦合少使用常數
 let shopRawData = require('./shopSeeder')
 shopDocs = _.chunk(shopRawData, 3)
 
@@ -26,7 +26,7 @@ const SEED_USER = [
 ]
 
 db.once('open', () => {
-  bcrypt //nested structure: 未來可改寫為函式再引用進來
+  bcrypt //nested structure: 未來可改寫為函式再使用Promise.all執行
     .genSalt(10)
     .then(salt => bcrypt.hash(SEED_USER[0].password, salt))
     .then(hash => User.create({user_name: SEED_USER[0].name, user_email: SEED_USER[0].email, password: hash}))
@@ -34,7 +34,6 @@ db.once('open', () => {
       const arr = shopDocs[0]
       Array.from({ length: arr.length }, (_, i)=>{arr[i].userId = user._id})
       Shop.insertMany(arr)
-      console.log('first user ok!')
     }).then(() => {
       bcrypt
         .genSalt(10)

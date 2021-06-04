@@ -36,12 +36,10 @@ module.exports = app => {
     clientSecret: process.env.FACEBOOK_SECRET,
     callbackURL: process.env.FACEBOOK_CALLBACK, //FB dev => Setting => FB login => 有效的重新導向URI
     profileFields: ['email', 'displayName']
-  }, (accessToken, refreshToken, profile, done) => { //done: originally cb (callbackfunction)
-    console.log(profile._json)
+  }, (accessToken, refreshToken, profile, done) => { 
     const { email, name } = profile._json
     User.findOne({ user_email: email })
     .then(user => {
-      console.log('user='+user)
       if(user){
         console.log('user already exists, logging you in...')
         return done(null, user)
@@ -60,7 +58,7 @@ module.exports = app => {
     .catch(err => done(err, false))
   }))
 
-    // 設定序列化與反序列化
+   
     passport.serializeUser((user, done) => { done(null, user.id) })
     passport.deserializeUser((id, done) => {
       User.findById(id)
