@@ -1,7 +1,7 @@
 ![webpage preview](https://github.com/CHIA-AN-YANG/Restaurant-List/blob/main/public/asset/restaurant-list_A4.JPG?raw=true)
 # Restaurant List
 
-Restaurant List is a private restaurant collection for foodies. You can view your favorite restaurants here. Add, modify, and record your own favorite restaurant with this restaurant list!
+Restaurant List is a private restaurant collection for foodies. You can view your favorite restaurants here. Add, modify, or record your own favorite restaurants with this restaurant list!
 
 You can also interact with its online version at: https://powerful-everglades-45881.herokuapp.com/ 
 
@@ -32,7 +32,7 @@ Run npm install to install required plugins.
 npm install
 ```
 ### 2. Database installation
-1. download MongoDB's community service version(Not enterprise one) from MongoDB's website. Preferred filetype is msi.
+1. Download MongoDB's community service version(Not enterprise one) from MongoDB's website. Preferred filetype is msi.
 2. Use Mango Campass or Roto 3T for GUI. Create a database connection at localhost 27170 (http://localhost). This host and port set is a preset location for mango database.
 
 ### 3. Set up environmental variables
